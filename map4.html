@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>現地探索 - 第4地点</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>第4地点：現地でキーワードを探せ！</h1>
+
+    <div id="map" style="height: 400px; margin-bottom: 1em;"></div>
+
+    <p>下の写真の場所に実際に行って、隠されたキーワードを見つけよう。</p>
+    <img src="images/photo4.jpg" alt="ヒント写真" style="width: 100%; border: 1px solid #ccc;">
+
+    <input type="text" id="keyword" placeholder="キーワードを入力" />
+    <button onclick="checkKeyword()">送信</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    // 地図初期化（別の場所）
+    const map = L.map('map').setView([35.4420, 139.6420], 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([35.4420, 139.6420]).addTo(map)
+      .bindPopup("この場所を調べてみよう！")
+      .openPopup();
+
+    function checkKeyword() {
+      const keyword = document.getElementById('keyword').value.trim();
+      if (keyword === "みず") { // 正解のキーワード
+        document.getElementById('result').innerHTML = '<a href="index5.html">✅ 正解！最終ページへ進む</a>';
+      } else {
+        document.getElementById('result').textContent = "❌ 不正解。もう一度探してみよう。";
+      }
+    }
+  </script>
+</body>
+</html>
