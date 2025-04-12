@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>最終謎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>最終謎 - カフェでの挑戦</h1>
+    <p>カフェに着いたあなたの前に最後の謎が立ちはだかる。</p>
+    <p>Q. 第1〜5の謎の答えの最初の文字をつなげるとできる言葉は？（ひらがなで答えてください）</p>
+    
+    <input type="text" id="final-answer">
+    <button onclick="checkFinal()">答える</button>
+    <p id="final-result"></p>
+  </div>
+
+  <script>
+    function checkFinal() {
+      const input = document.getElementById('final-answer').value.trim();
+      if (input === "ねいあとき") {
+        document.getElementById('final-result').innerHTML = `
+          🎉 正解！おめでとうございます！<br>
+          <strong>ドリンククーポン（594円）:</strong><br>
+          <img src="ChatGPT Image.png" alt="クーポン画像" style="max-width:300px;"><br>
+          スタッフにこの画面と支払い証明を見せてください。
+        `;
+      } else {
+        document.getElementById('final-result').textContent = "❌ 不正解。もう一度考えてみてください。";
+      }
+    }
+  </script>
+</body>
+</html>
