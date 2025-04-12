@@ -1,0 +1,96 @@
+/* 探偵風 背景と文字設定 */
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background: url('https://www.transparenttextures.com/patterns/paper-fibers.png'), #2b2b2b;
+  color: #e6e2d3;
+  line-height: 1.8;
+}
+
+/* コンテナ：紙の上に書かれたような雰囲気 */
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: rgba(38, 33, 24, 0.9);
+  padding: 40px;
+  border: 2px solid #8b6f47;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+/* 見出し：タイプライター風＋金色強調 */
+h1, h2 {
+  font-family: 'Courier New', monospace;
+  color: #d4af37;
+  text-align: center;
+  text-shadow: 1px 1px 0 #000;
+}
+
+/* 入力フォームとボタン */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #f9f6ef;
+  color: #2b2b2b;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  background-color: #3a3a3a;
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+/* 正解・不正解メッセージ */
+#result, #mapresult {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  color: #fcebb6;
+}
+
+/* リンク */
+a {
+  color: #d4af37;
+  text-decoration: none;
+  border-bottom: 1px dashed #d4af37;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 地図エリア */
+#map {
+  margin-top: 20px;
+  border: 2px solid #8b6f47;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* ヒント画像など */
+img {
+  margin-top: 20px;
+  border: 1px solid #8b6f47;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
