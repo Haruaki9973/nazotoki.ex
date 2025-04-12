@@ -8,40 +8,23 @@
 <body>
   <div class="container">
     <h1>第1の謎</h1>
-    <p>Q. 時計が止まった時間は？（数字のみで答えてください）</p>
+    <p>Q. 最初に見つけたのは何だった？（ひらがなで答えてください）</p>
     
-    <p id="timer">残り時間：<span id="time">5</span>秒</p>
-    <input type="text" id="answer">
+    <input type="text" id="answer" placeholder="ここに答えを入力">
     <button onclick="checkAnswer()">答える</button>
     <p id="result"></p>
   </div>
 
   <script>
-    let timeLeft = 5; // 秒（3分）
-    const timeDisplay = document.getElementById('time');
-    const resultDisplay = document.getElementById('result');
-    const answerInput = document.getElementById('answer');
-
-    // タイマー開始
-    const timer = setInterval(() => {
-      timeLeft--;
-      timeDisplay.textContent = timeLeft;
-
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        resultDisplay.textContent = "⌛ 時間切れです！もう一度最初からやり直してください。";
-        answerInput.disabled = true;
-      }
-    }, 1000);
-
-    // 答えの判定
     function checkAnswer() {
-      const input = answerInput.value.trim();
-      if (input === "3") {
-        clearInterval(timer);
-        resultDisplay.innerHTML = '<a href="map1.html">✅ 正解！地図を確認して次の場所へ</a>';
+      const input = document.getElementById('answer').value.trim();
+      const correct = "ねこ"; // ← 正解をここで指定（例：ねこ）
+
+      if (input === correct) {
+        // 正解時に map1.html へ自動遷移
+        window.location.href = "map1.html";
       } else {
-        resultDisplay.textContent = "❌ 不正解。もう一度考えてみてください。";
+        document.getElementById('result').textContent = "❌ 不正解。もう一度考えてみてください。";
       }
     }
   </script>
