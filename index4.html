@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>第4の謎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="fade-in">第4の謎</h1>
+    <p class="question">Q. 目に見えず、声もなく、それでもすべてを動かすものとは？（ひらがな）</p>
+    <input type="text" id="answer">
+    <button onclick="checkAnswer()">答える</button>
+    <p id="result"></p>
+  </div>
+  <audio id="se" src="sound/reveal.mp3" preload="auto"></audio>
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById('answer').value.trim();
+      const se = document.getElementById('se');
+      if (input === "じかん") {
+        se.play();
+        document.getElementById('result').innerHTML = '<a href="map4.html">✅ 正解！次の場所へ</a>';
+      } else {
+        document.getElementById('result').textContent = "❌ 不正解";
+      }
+    }
+  </script>
+</body>
+</html>
