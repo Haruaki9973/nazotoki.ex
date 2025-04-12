@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>第3の謎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="fade-in">第3の謎</h1>
+    <p class="question">Q.  こうさてんの真ん中にいたのは？（ひらがな）</p>
+    <input type="text" id="answer">
+    <button onclick="checkAnswer()">答える</button>
+    <p id="result"></p>
+  </div>
+  <audio id="se" src="sound/reveal.mp3" preload="auto"></audio>
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById('answer').value.trim();
+      const se = document.getElementById('se');
+      if (input === "あか") {
+        se.play();
+        document.getElementById('result').innerHTML = '<a href="map3.html">✅ 正解！次の場所へ</a>';
+      } else {
+        document.getElementById('result').textContent = "❌ 不正解";
+      }
+    }
+  </script>
+</body>
+</html>
