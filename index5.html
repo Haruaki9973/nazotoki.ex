@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>第5の謎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>第5の謎</h1>
+    <p>Q. みんなが集まる場所の名前は何でしょう？（ひらがなで答えてください）</p>
+    <input type="text" id="answer">
+    <button onclick="checkAnswer()">答える</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById('answer').value.trim();
+      if (input === "こうえん") { // 正解のキーワード
+        document.getElementById('result').innerHTML = '<a href="map5.html">✅ 正解！地図を確認して最終地点へ進む</a>';
+      } else {
+        document.getElementById('result').textContent = "❌ 不正解。もう一度考えてみてください。";
+      }
+    }
+  </script>
+</body>
+</html>
