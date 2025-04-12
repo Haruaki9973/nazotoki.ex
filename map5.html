@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>現地探索 - 第5地点</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>現地でキーワードを探そう</h1>
+    <div id="map" style="height: 400px;"></div>
+    <p>この写真の場所に行って、隠されたキーワードを見つけよう：</p>
+    <img src="images/photo5.jpg" alt="ヒント画像" style="width:100%;">
+    <input type="text" id="keyword">
+    <button onclick="checkKeyword()">カフェへ進む</button>
+    <p id="mapresult"></p>
+  </div>
+
+  <script>
+    const map = L.map('map').setView([35.4435, 139.6500], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.marker([35.4435, 139.6500]).addTo(map).bindPopup("このあたりでキーワードを探そう！");
+
+    function checkKeyword() {
+      const keyword = document.getElementById('keyword').value.trim();
+      if (keyword === "かぎ") {
+        document.getElementById('mapresult').innerHTML = '<a href="final.html">✅ 正解！カフェで最後の謎へ</a>';
+      } else {
+        document.getElementById('mapresult').textContent = "❌ 不正解。もう一度探してみよう。";
+      }
+    }
+  </script>
+</body>
+</html>
