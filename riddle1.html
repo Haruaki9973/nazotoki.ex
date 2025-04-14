@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>第1の謎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>第1の謎</h1>
+    <p>Q. 時計が止まった時間は？（数字のみで答えてください）</p>
+    
+    <p id="timer">残り時間：<span id="time">180</span>秒</p>
+    <input type="text" id="answer">
+    <button onclick="checkAnswer()">答える</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    let timeLeft = 180; // 秒（3分）
+    const timeDisplay = document.getElementById('time');
+    const resultDisplay = document.getElementById('result');
+    const answerInput = document.getElementById('answer');
+
+    // タイマー開始
+    const timer = setInterval(() => {
+      timeLeft--;
+      timeDisplay.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        resultDisplay.textContent = "⌛ 時間切れです！もう一度最初からやり直してください。";
+        answerInput.disabled = true;
+      }
+    }, 1000);
+
+    // 答えの判定
+    function checkAnswer() {
+      const input = answerInput.value.trim();
+      if (input === "3") {
+        clearInterval(timer);
+        resultDisplay.innerHTML = '<a href="map1.html">✅ 正解！地図を確認して次の場所へ</a>';
+      } else {
+        resultDisplay.textContent = "❌ 不正解。もう一度考えてみてください。";
+      }
+    }
+  </script>
+</body>
+</html>
